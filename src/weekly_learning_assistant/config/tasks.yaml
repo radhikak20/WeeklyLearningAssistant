@@ -1,0 +1,35 @@
+---
+research_weekly_learning_content:
+  description: Research and curate the best learning resources for {learning_topic}
+    this week. Focus on finding 3-5 high-quality resources including tutorials, articles,
+    videos, or papers that match {skill_level} level. Look for recent content and
+    practical, actionable material that supports {learning_goals}.
+  expected_output: A curated list of 3-5 learning resources in markdown format, including
+    titles, URLs, brief descriptions, estimated time to complete, and difficulty level
+    for each resource. Include why each resource was selected and how it fits the
+    learning goals.
+  agent: learning_content_researcher
+create_structured_learning_plan:
+  description: Using the researched content, create a detailed weekly learning plan
+    that structures the learning journey. Break down the content into daily tasks
+    that fit within {available_hours} hours per week. Include specific learning objectives,
+    practice exercises, and checkpoints.
+  expected_output: A comprehensive weekly learning plan in markdown format with daily
+    breakdowns, including specific tasks, time allocations, learning objectives for
+    each day, recommended practice exercises, and progress checkpoints. Include tips
+    for maximizing learning effectiveness.
+  agent: learning_plan_strategist
+  context:
+  - research_weekly_learning_content
+generate_learning_progress_summary:
+  description: Based on the weekly learning plan created, provide a motivational summary
+    and recommendations for effective learning. If {previous_week_progress} is provided,
+    include personalized feedback on progress. Always provide encouragement and actionable
+    next steps.
+  expected_output: 'A motivational progress report in markdown format including: progress
+    highlights, key achievements, areas for improvement, learning insights, motivation
+    boosters, and personalized recommendations for next week''s learning focus. Include
+    celebration of wins and constructive guidance for challenges.'
+  agent: progress_tracker_and_motivator
+  context:
+  - create_structured_learning_plan
